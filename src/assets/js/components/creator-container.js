@@ -32,7 +32,7 @@ const switcher = (data) => {
             const link = $('<a class="info-new" href="#"></a>');
             boxOne.append(newsContainer(data));
             link.append(boxOne);
-            link.on('click',() =>{InformationNews(data);});
+            link.on('click',() =>{state.informacion = data});
             return link;
             break;
         case '2':
@@ -51,14 +51,9 @@ const switcher = (data) => {
             return boxFour;
             break;
         case '5':
-            const boxFive = $('<div class="col l6 s12 news-type-5"></div>');
+            const boxFive = $('<div class="col l3 s12 news-type-5"></div>');
             boxFive.append(newsContainer(data));
             return boxFive;
-            break;
-        case '6':
-            const boxSix = $('<div class="col l3 s6 news-type-6"></div>');
-            boxSix.append(newsContainer(data));
-            return boxSix;
             break;
     }
 };

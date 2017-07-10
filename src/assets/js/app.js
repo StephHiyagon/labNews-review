@@ -13,10 +13,9 @@ const render = (root) => {
       wrapper.append(CarruselNews());
     }
 
-    console.log(state.noti);
 
     if(state.noti=="nota1"){
-      wrapper.append(Article());
+      wrapper.append(InformationNews(state.informacion));
     }
     wrapper.append(Footer());
     root.append(wrapper);
@@ -25,7 +24,8 @@ const render = (root) => {
 const state = {
     news: null,
     categories: null,
-    noti:null
+    noti:null,
+    informacion: null
 };
 
 $(_ => {

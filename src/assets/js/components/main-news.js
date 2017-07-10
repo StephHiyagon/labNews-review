@@ -16,7 +16,6 @@ const MainNews = (update) => {
         state.noti="nota1";
         update();
       }
-      console.log(e.target.className);
     });
 
     container.append(row);
