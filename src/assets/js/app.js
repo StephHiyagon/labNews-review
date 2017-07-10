@@ -11,12 +11,8 @@ const render = (root) => {
       wrapper.append(EducationNews());
       wrapper.append(OpinionNews());
       wrapper.append(CarruselNews());
-    }
-
-    console.log(state.noti);
-
-    if(state.noti=="nota1"){
-      wrapper.append(TecnologyNews());
+    }else if(state.noti=="nota1"){
+      wrapper.append(InformationNews());
     }
     wrapper.append(Footer());
     root.append(wrapper);
@@ -31,11 +27,9 @@ const state = {
 $(_ => {
     $.getJSON('/api/news/', (data) => {
         state.news = data;
-        console.log(state.news);
 
         $.getJSON('/api/categories/', (res) => {
             state.categories = res;
-            console.log(state.categories);
 
 
             const root = $('.root');

@@ -32,7 +32,7 @@ const switcher = (data) => {
             const link = $('<a class="info-new" href="#"></a>');
             boxOne.append(newsContainer(data));
             link.append(boxOne);
-            InformationNews(link);
+            link.on('click',() =>{InformationNews(data);});
             return link;
             break;
         case '2':
