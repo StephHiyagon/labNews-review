@@ -10,7 +10,7 @@ const render = (root) => {
       wrapper.append(TecnologyNews());
       wrapper.append(EducationNews());
       wrapper.append(OpinionNews());
-      wrapper.append(CarruselNews());
+      wrapper.append(Carrousel());
     }
 
     console.log(state.noti);

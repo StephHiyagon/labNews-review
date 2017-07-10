@@ -18,7 +18,6 @@ const newsContainer = (data) => {
         const icon = $('<img class="container__video" src="assets/img/play-button.png"/>');
         container.append(icon);
     }
-
     container.append(img);
     container.append(containerText);
 
