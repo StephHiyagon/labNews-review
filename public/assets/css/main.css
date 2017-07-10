@@ -6947,7 +6947,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   width: 90%;
   margin: 0 auto;
   box-sizing: border-box;
-  margin-top: 6rem; }
+  margin-top: 10rem; }
 
 .container-mundo {
   width: 90%;
@@ -6999,8 +6999,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     height: 77px;
     margin-bottom: 30px;
     text-align: center; }
-    .header__menu-mobile .logo img {
-      width: 60%; }
+    .header__menu-mobile .logo {
+      display: inline; }
+      .header__menu-mobile .logo img {
+        width: 60%; }
     .header__menu-mobile .search {
       margin-top: 7px;
       float: right; }
