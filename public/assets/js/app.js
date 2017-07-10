@@ -85,6 +85,8 @@ const switcher = (data) => {
 const EducationNews = () => {
         const container = $('<div class="container-tecnology"></div>');
         const row = $('<div class="row"></div>');
+        const h4 = $(`<h4 class="">${state.categories[3].title}</h4>`);
+        row.append(h4);
 
             let counter = 0;
         state.news.forEach((i) => {
@@ -100,6 +102,7 @@ const EducationNews = () => {
 
         return container;
 };
+
 'use strict';
 
 const Footer = () => {
@@ -161,7 +164,7 @@ const Footer = () => {
 'use strict';
 const Header = () => {
     const headerContainer = $(`<header class="header"></header>`);
-    const nav = $(`<div class="row"></div>`);
+    const nav = $(`<div></div>`);
     const divMenu = $(`<div class="header__menuDesk hide-on-small-only">
                             <ul class="col s10">
                                 <li><img src="assets/img/menu.png" alt="">SECTIONS</li>
@@ -186,8 +189,6 @@ const Header = () => {
                         <div class="logo col s7"><img src="assets/img/logoicon.png" alt=""></div>
                         <div class="search col s1"><img src="assets/img/menu.png" alt=""></div>
                       </div>`);
-    headerContainer.append(nav);
-    headerContainer.append(menuMob);
 
     const divNavigation = $(`<div class="header__navigation col s12 hide-on-small-only">
                            <ul>
@@ -202,9 +203,10 @@ const Header = () => {
                                <li>Deporte</li>
                              </ul>
                       </div>`);
-   headerContainer.append(divNavigation);
-
-    return headerContainer;
+  nav.append(divNavigation);
+  headerContainer.append(nav);
+  headerContainer.append(menuMob);
+  return headerContainer;
 }
 function date(){
   const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -256,25 +258,30 @@ const MainNews = (update) => {
 'use strict';
 
 const MundoNews = (update) => {
-    const container = $('<div class="container-mundo"></div>');
+    const container = $('<div class="container__mundo"></div>');
     const row = $('<div class="row"></div>');
+    const col6 = $('<div class="col m6"></div>');
+    const h4 = $(`<h4 class="">${state.categories[1].title}</h4>`);
+    row.append(h4);
 
-    state.news.forEach((i) => {
-        if (state.categories[1].id == i.categories[0]) {
-            row.append(switcher(i));
+    state.news.forEach((elem,i) => {
+        if (state.categories[1].id == elem.categories[0]) {
+          row.append(switcher(elem));
         }
     });
-
 
     container.append(row);
 
     return container;
 };
+
 'use strict';
 
 const OpinionNews = () => {
-    const container = $('<div class="container-tecnology"></div>');
+    const container = $('<div class="container__opinion"></div>');
     const row = $('<div class="row"></div>');
+    const h4 = $(`<h4 class="">${state.categories[4].title}</h4>`);
+    row.append(h4);
 
     let counter = 0;
     state.news.forEach((i) => {
@@ -290,11 +297,14 @@ const OpinionNews = () => {
 
     return container;
 };
+
 'use strict';
 
 const TecnologyNews = () => {
-    const container = $('<div class="container-tecnology"></div>');
+    const container = $('<div class="container__technology"></div>');
     const row = $('<div class="row"></div>');
+    const h4 = $(`<h4 class="">${state.categories[2].title}</h4>`);
+    row.append(h4);
 
     let counter = 0;
     state.news.forEach((i) => {
@@ -310,11 +320,12 @@ const TecnologyNews = () => {
 
     return container;
 };
+
 'use strict';
 
 const render = (root) => {
     root.empty();
-    const wrapper = $('<div class="wrapper"></div>');
+    const wrapper = $('<div class="container"></div>');
       wrapper.append(Header());
     if(!state.noti){
       wrapper.append(MainNews(_ =>{render(root)}));

@@ -6864,11 +6864,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   justify-content: center;
   align-items: center; }
 
-.container-main, .container-mundo, .header {
-  width: 90%;
-  margin: 0 auto;
-  box-sizing: border-box; }
-
 .nav {
   background-color: #fff; }
   .nav__icon-menu {
@@ -7006,7 +7001,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       color: #fff; }
 
 .footer {
-  margin: 0 5%;
   background-color: #F7B617; }
   .footer p, .footer a, .footer span {
     color: #fff;

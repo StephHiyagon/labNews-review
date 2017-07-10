@@ -2,7 +2,7 @@
 
 const render = (root) => {
     root.empty();
-    const wrapper = $('<div class="wrapper"></div>');
+    const wrapper = $('<div class="container"></div>');
       wrapper.append(Header());
     if(!state.noti){
       wrapper.append(MainNews(_ =>{render(root)}));

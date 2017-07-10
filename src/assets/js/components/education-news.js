@@ -3,6 +3,8 @@
 const EducationNews = () => {
         const container = $('<div class="container-tecnology"></div>');
         const row = $('<div class="row"></div>');
+        const h4 = $(`<h4 class="">${state.categories[3].title}</h4>`);
+        row.append(h4);
 
             let counter = 0;
         state.news.forEach((i) => {

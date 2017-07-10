@@ -1,7 +1,7 @@
 'use strict';
 const Header = () => {
     const headerContainer = $(`<header class="header"></header>`);
-    const nav = $(`<div class="row"></div>`);
+    const nav = $(`<div></div>`);
     const divMenu = $(`<div class="header__menuDesk hide-on-small-only">
                             <ul class="col s10">
                                 <li><img src="assets/img/menu.png" alt="">SECTIONS</li>
@@ -26,8 +26,6 @@ const Header = () => {
                         <div class="logo col s7"><img src="assets/img/logoicon.png" alt=""></div>
                         <div class="search col s1"><img src="assets/img/menu.png" alt=""></div>
                       </div>`);
-    headerContainer.append(nav);
-    headerContainer.append(menuMob);
 
     const divNavigation = $(`<div class="header__navigation col s12 hide-on-small-only">
                            <ul>
@@ -42,9 +40,10 @@ const Header = () => {
                                <li>Deporte</li>
                              </ul>
                       </div>`);
-   headerContainer.append(divNavigation);
-
-    return headerContainer;
+  nav.append(divNavigation);
+  headerContainer.append(nav);
+  headerContainer.append(menuMob);
+  return headerContainer;
 }
 function date(){
   const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
