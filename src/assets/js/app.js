@@ -16,7 +16,7 @@ const render = (root) => {
     console.log(state.noti);
 
     if(state.noti=="nota1"){
-      wrapper.append(TecnologyNews());
+      wrapper.append(Article());
     }
     wrapper.append(Footer());
     root.append(wrapper);

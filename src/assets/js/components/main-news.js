@@ -13,7 +13,6 @@ const MainNews = (update) => {
 
     row.first().on('click',(e) => {
       if(e.target.id == "news-0.png"){
-        alert('entraste!');
         state.noti="nota1";
         update();
       }
