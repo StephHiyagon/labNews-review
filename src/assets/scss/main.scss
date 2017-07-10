@@ -30,6 +30,27 @@ $white: #fff;
   }
 }
 
+//Mish was here
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.article-img {
+  width: 100%;
+}
+
+.author {
+  border-radius: 50%;
+  border: 1px solid $yellow;
+  padding: 5px;
+}
+
+.author-info {
+  display: inline-flex;
+  font-weight: bolder;
+}
+
 @for $i from 2 through 6 {
   .news-type-#{$i} {
     position: relative;

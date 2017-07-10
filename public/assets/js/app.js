@@ -49,7 +49,7 @@ const switcher = (data) => {
             const link = $('<a class="info-new" href="#"></a>');
             boxOne.append(newsContainer(data));
             link.append(boxOne);
-            link.on('click',() =>{InformationNews(data);});
+            InformationNews(link);
             return link;
             break;
         case '2':
@@ -216,14 +216,11 @@ function date(){
 
 'use strict';
 
-const InformationNews = (data) =>{
+const InformationNews = () =>{
   const container = $('<div></div>');
   const row = $('<div class="row"></div>');
 
 
-
-    console.log(data);
-    console.log(state.categories);
 
   container.append(row);
   return container;
@@ -243,12 +240,13 @@ const MainNews = (update) => {
     });
 
     row.first().on('click',(e) => {
-        if(e.target.id == "news-0.png"){
-            state.noti="nota1";
-            update();
-        }
+      if(e.target.id == "news-0.png"){
+        alert('entraste!');
+        state.noti="nota1";
+        update();
+      }
+      console.log(e.target.className);
     });
-
 
     container.append(row);
 
@@ -325,8 +323,12 @@ const render = (root) => {
       wrapper.append(EducationNews());
       wrapper.append(OpinionNews());
       wrapper.append(CarruselNews());
-    }else if(state.noti=="nota1"){
-      wrapper.append(InformationNews());
+    }
+
+    console.log(state.noti);
+
+    if(state.noti=="nota1"){
+      wrapper.append(TecnologyNews());
     }
     wrapper.append(Footer());
     root.append(wrapper);
@@ -341,9 +343,11 @@ const state = {
 $(_ => {
     $.getJSON('/api/news/', (data) => {
         state.news = data;
+        console.log(state.news);
 
         $.getJSON('/api/categories/', (res) => {
             state.categories = res;
+            console.log(state.categories);
 
 
             const root = $('.root');

@@ -12,12 +12,12 @@ const MainNews = (update) => {
     });
 
     row.first().on('click',(e) => {
-        if(e.target.id == "news-0.png"){
-            state.noti="nota1";
-            update();
-        }
+      if(e.target.id == "news-0.png"){
+        state.noti="nota1";
+        update();
+      }
+      console.log(e.target.className);
     });
-
 
     container.append(row);
 
