@@ -3,22 +3,29 @@
 const render = (root) => {
     root.empty();
     const wrapper = $('<div class="wrapper"></div>');
-    wrapper.append(Header());
-    wrapper.append(MainNews());
-    wrapper.append(MundoNews(_ =>{render(root)}));
-    wrapper.append(TecnologyNews());
-    wrapper.append(EducationNews());
-    wrapper.append(OpinionNews());
-    wrapper.append(CarruselNews());
-    wrapper.append(Footer());
+      wrapper.append(Header());
+    if(!state.noti){
+      wrapper.append(MainNews(_ =>{render(root)}));
+      wrapper.append(MundoNews(_ =>{render(root)}));
+      wrapper.append(TecnologyNews());
+      wrapper.append(EducationNews());
+      wrapper.append(OpinionNews());
+      wrapper.append(CarruselNews());
+    }
 
+    console.log(state.noti);
+
+    if(state.noti=="nota1"){
+      wrapper.append(TecnologyNews());
+    }
+    wrapper.append(Footer());
     root.append(wrapper);
 };
 
 const state = {
     news: null,
     categories: null,
-    noticia:null
+    noti:null
 };
 
 $(_ => {
@@ -35,5 +42,5 @@ $(_ => {
             render(root);
         });
     });
-  
+
 });

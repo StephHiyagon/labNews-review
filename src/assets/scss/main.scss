@@ -63,6 +63,7 @@ $white: #fff;
     right: 25px;
   }
 }
+
 .news {
   &-type-1 {
     position: relative;
@@ -126,10 +127,19 @@ $white: #fff;
 
      }
    }
-
    .search {
      margin-top: 7px;
      float: right;
+   }
+ }
+
+ &__menu{
+   background-color: #F7B617 ;
+   padding: 10px 0;
+   ul {
+     @extend %flex;
+     justify-content: space-around;
+     li {color: #fff;}
    }
  }
 }

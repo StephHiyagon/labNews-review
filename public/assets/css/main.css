@@ -6859,7 +6859,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   stroke-linecap: round;
   /*shape-rendering: crispEdges;*/ }
 
-.header__menuDesk, .header__logo, .footer, .footer__content {
+.header__menuDesk, .header__logo, .header__menu ul, .footer, .footer__content {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -7006,6 +7006,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .header__menu-mobile .search {
       margin-top: 7px;
       float: right; }
+  .header__menu {
+    background-color: #F7B617;
+    padding: 10px 0; }
+    .header__menu ul {
+      justify-content: space-around; }
+      .header__menu ul li {
+        color: #fff; }
 
 .footer {
   margin: 0 5%;

@@ -197,6 +197,22 @@ const Header = () => {
                       </div>`);
     headerContainer.append(nav);
     headerContainer.append(menuMob);
+
+    const divNavigation = $(`<div class="header__navigation col s12 hide-on-small-only">
+                           <ul>
+                               <li>Lo último</li>
+                               <li>Opinión</li>
+                               <li>Cultura</li>
+                               <li>Perú</li>
+                               <li>Tecnología</li>
+                               <li>Mundo</li>
+                               <li>Economía</li>
+                               <li>LifeStyle</li>
+                               <li>Deporte</li>
+                             </ul>
+                      </div>`);
+   headerContainer.append(divNavigation);
+
     return headerContainer;
 }
 
@@ -215,7 +231,7 @@ const InformationNews = () =>{
 'use strict';
 
 
-const MainNews = () => {
+const MainNews = (update) => {
     const container = $('<div class="container-main"></div>');
     const row = $('<div class="row"></div>');
 
@@ -228,6 +244,8 @@ const MainNews = () => {
     row.first().on('click',(e) => {
       if(e.target.id == "news-0.png"){
         alert('entraste!');
+        state.noti="nota1";
+        update();
       }
       console.log(e.target.className);
     });
@@ -299,22 +317,29 @@ const TecnologyNews = () => {
 const render = (root) => {
     root.empty();
     const wrapper = $('<div class="wrapper"></div>');
-    wrapper.append(Header());
-    wrapper.append(MainNews());
-    wrapper.append(MundoNews(_ =>{render(root)}));
-    wrapper.append(TecnologyNews());
-    wrapper.append(EducationNews());
-    wrapper.append(OpinionNews());
-    wrapper.append(CarruselNews());
-    wrapper.append(Footer());
+      wrapper.append(Header());
+    if(!state.noti){
+      wrapper.append(MainNews(_ =>{render(root)}));
+      wrapper.append(MundoNews(_ =>{render(root)}));
+      wrapper.append(TecnologyNews());
+      wrapper.append(EducationNews());
+      wrapper.append(OpinionNews());
+      wrapper.append(CarruselNews());
+    }
 
+    console.log(state.noti);
+
+    if(state.noti=="nota1"){
+      wrapper.append(TecnologyNews());
+    }
+    wrapper.append(Footer());
     root.append(wrapper);
 };
 
 const state = {
     news: null,
     categories: null,
-    noticia:null
+    noti:null
 };
 
 $(_ => {
@@ -331,7 +356,7 @@ $(_ => {
             render(root);
         });
     });
-  
+
 });
 
 },{}]},{},[1])

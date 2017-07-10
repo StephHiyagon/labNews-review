@@ -37,5 +37,21 @@ const Header = () => {
                       </div>`);
     headerContainer.append(nav);
     headerContainer.append(menuMob);
+
+    const divNavigation = $(`<div class="header__navigation col s12 hide-on-small-only">
+                           <ul>
+                               <li>Lo último</li>
+                               <li>Opinión</li>
+                               <li>Cultura</li>
+                               <li>Perú</li>
+                               <li>Tecnología</li>
+                               <li>Mundo</li>
+                               <li>Economía</li>
+                               <li>LifeStyle</li>
+                               <li>Deporte</li>
+                             </ul>
+                      </div>`);
+   headerContainer.append(divNavigation);
+
     return headerContainer;
 }

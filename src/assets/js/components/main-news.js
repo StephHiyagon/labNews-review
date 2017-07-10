@@ -1,7 +1,7 @@
 'use strict';
 
 
-const MainNews = () => {
+const MainNews = (update) => {
     const container = $('<div class="container-main"></div>');
     const row = $('<div class="row"></div>');
 
@@ -14,6 +14,8 @@ const MainNews = () => {
     row.first().on('click',(e) => {
       if(e.target.id == "news-0.png"){
         alert('entraste!');
+        state.noti="nota1";
+        update();
       }
       console.log(e.target.className);
     });
