@@ -21,7 +21,7 @@ const newsContainer = (data) => {
     const container = $('<div class="container-news"></div>');
     const containerText = $('<div></div>');
     const title = $('<h5>' + data.title + '</h5>');
-    const img = $('<img class="responsive-img" src="assets/img/news/' + data.img + '" />');
+    const img = $('<img id="'+data.img+'" class="responsive-img" src="assets/img/news/' + data.img + '" />');
 
 
     containerText.append(title);
@@ -79,6 +79,7 @@ const switcher = (data) => {
             break;
     }
 };
+
 'use strict';
 
 const EducationNews = () => {
@@ -102,17 +103,103 @@ const EducationNews = () => {
 'use strict';
 
 const Footer = () => {
+    const footerContainer = $('<footer class="footer"></footer>');
 
-};
+    const part1 = $(`<div class="footer__content col-sm-4">
+                            <img src="assets/img/logo-footer.png" alt="">
+                            <p>© Editado por Laboratoria
+                                Av. José Pardo #601 Lima 1 Perú
+                                Copyright © Laboratoria.la
+                                Todos los derechos reservados.</p>
+                       </div>`);
+    footerContainer.append(part1);
+
+    const part2 = $(`<div class="footer__content col-sm-4 hidden-xs">
+                        <ul>
+                          <li>
+                            <p>DIRECTOR GENERAL:</p>
+                            <p>Francisco Miró Quesada Cantuarias </p>
+                          </li>
+                          <li>
+                            <p>DIRECTOR PERIODÍSTICO:</p>
+                            <p>Fernando Berckemeyer Olaechea </p>
+                          </li>
+                          <li>
+                            <p>SUSCRIPCIONES:</p>
+                            <p>suscriptores@comercio.com.pe </p>
+                          </li>
+                          <li>
+                            <p>PUBLICIDAD ONLINE:</p>
+                            <p>fonoavisos@comercio.com.pe </p>
+                          </li>
+                          <li>
+                            <p>CLUB EL COMERCIO:</p>
+                            <p>clubelcomercio@comercio.com.pe
+                            Compromiso de Autorregulación Comercial</p>
+                          </li>
+                        </ul>
+                       </div>`);
+    footerContainer.append(part2);
+
+    const part3 = $(`<div class="footer__content col-sm-4 hidden-xs">
+                            <p>TÉRMINOS Y CONDICIONES DE USO
+                                TRABAJA CON NOSOTROS
+                                LIBRO DE RECLAMACIONES
+                                SEDES PRINCIPALES
+                                POLÍTICAS DE PRIVACIDAD</p>
+                            <span>Siguenos:
+                                <a><img src="assets/img/fb.png" alt=""></a>
+                                <a><img src="assets/img/tw.png" alt=""></a>
+                                <a><img src="assets/img/in.png" alt=""></a>
+                            </span>
+                       </div>`);
+    footerContainer.append(part3);
+    return footerContainer;
+
+}
+
 'use strict';
 
-const Header = () => {
-    const nav = $('<nav class="nav"></nav>');
-    const iconMenu = $('<img class="icon-menu" src="assets/img/menu.png"/>');
+// const Header = () => {
+//     const nav = $('<nav class="nav"></nav>');
+//     const iconMenu = $('<img class="icon-menu" src="assets/img/menu.png"/>');
+//
+//     nav.append(iconMenu);
+//     return nav;
+// };
 
-    nav.append(iconMenu);
-    return nav;
-};
+const Header = () => {
+    const headerContainer = $(`<header class="header"></header>`);
+    const nav = $(`<div></div>`);
+    const divMenu = $(`<div class="header__menuDesk hide-on-small-only">
+                            <ul class="col s10">
+                                <li><img src="assets/img/menu.png" alt="">SECTIONS</li>
+                                <li><img src="assets/img/search.png" alt="">SEARCH</li>
+                              </ul>
+                              <ul class="col s2">
+                                <li><img src="assets/img/fb.png" alt=""></li>
+                                <li><img src="assets/img/tw.png" alt=""></li>
+                                <li><img src="assets/img/in.png" alt=""></li>
+                              </ul>
+                       </div><hr class="hide-on-small-only">`);
+
+    const logoHeader = $(`<div class="header__logo hide-on-small-only">
+                            <img src="assets/img/logoicon.png" alt="">
+                            <span>hora | <img src="assets/img/cloud.png" alt=""> 20°</span>
+                          </div>`);
+
+    nav.append(divMenu);
+    nav.append(logoHeader);
+
+    const menuMob= $(`<div class="header__menu-mobile hide-on-med-and-up">
+                        <div class="logo col s7"><img src="assets/img/logoicon.png" alt=""></div>
+                        <div class="search col s1"><img src="assets/img/menu.png" alt=""></div>
+                      </div>`);
+    headerContainer.append(nav);
+    headerContainer.append(menuMob);
+    return headerContainer;
+}
+
 'use strict';
 
 const InformationNews = () =>{
@@ -138,14 +225,18 @@ const MainNews = () => {
         }
     });
 
-    row.first().on('click',() => {
-        alert('listo');
+    row.first().on('click',(e) => {
+      if(e.target.id == "news-0.png"){
+        alert('entraste!');
+      }
+      console.log(e.target.className);
     });
 
     container.append(row);
 
     return container;
 };
+
 'use strict';
 
 const MundoNews = (update) => {
@@ -222,20 +313,25 @@ const render = (root) => {
 
 const state = {
     news: null,
-    categories: null
+    categories: null,
+    noticia:null
 };
 
 $(_ => {
     $.getJSON('/api/news/', (data) => {
         state.news = data;
+        console.log(state.news);
 
         $.getJSON('/api/categories/', (res) => {
             state.categories = res;
+            console.log(state.categories);
+
 
             const root = $('.root');
             render(root);
         });
     });
-
+  
 });
+
 },{}]},{},[1])

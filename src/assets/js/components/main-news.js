@@ -11,8 +11,11 @@ const MainNews = () => {
         }
     });
 
-    row.first().on('click',() => {
-        alert('listo');
+    row.first().on('click',(e) => {
+      if(e.target.id == "news-0.png"){
+        alert('entraste!');
+      }
+      console.log(e.target.className);
     });
 
     container.append(row);

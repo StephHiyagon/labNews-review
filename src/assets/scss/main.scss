@@ -1,9 +1,20 @@
 @import "vendor/materialize";
 //Montserrat
 
+
 $yellow: #F7B617;
 $gris: #2B2B2B;
 $white: #fff;
+%flex {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+%container {
+ padding: 1% 6%;
+ width: 100%;
+}
 
 @mixin width-container() {
   width: 90%;
@@ -41,6 +52,7 @@ $white: #fff;
 .container {
   &-main {
     @include width-container;
+    margin-top: 6rem;
   }
   &-mundo {
     @include width-container;
@@ -80,4 +92,74 @@ $white: #fff;
       }
     }
   }
+}
+
+.header {
+ @extend %container;
+ width: 100%;
+ &__menuDesk {
+   @extend %flex;
+   justify-content: space-between;
+
+   margin-bottom: 14px;
+   ul li{
+     display: inline-block;
+   }
+ }
+ &__logo {
+   @extend %flex;
+   flex-flow: column wrap;
+   justify-content: space-between;
+   margin: 20px 0;
+   height: 100px;
+ }
+ &__menu-mobile {
+   border-bottom: 2px solid #F7B617 ;
+   padding: 10px 0;
+   height: 77px;
+   margin-bottom: 30px;
+   text-align: center;   
+   .logo img{
+     width: 60%;
+
+   }
+   .search {
+     margin-top: 7px;
+     float: right;
+   }
+ }
+}
+
+.footer {
+ margin: 0 5%;
+ @extend %flex;
+ background-color: #F7B617 ;
+ p,a,span {
+   color: #fff;
+   font-size: .8rem;
+ }
+
+ &__content {
+   @extend %flex;
+   justify-content: center;
+   align-items: flex-start;
+   flex-flow: column wrap;
+   padding-left: 20px;
+   height: 300px;
+   border-left: 1px solid #ffffff ;
+   ul li {
+     line-height: 14px;
+     margin-bottom: 20px;
+   }
+ }
+}
+
+@media (max-width: 767px) {
+ // Header
+ .show-xs {
+   display: block;
+ }
+ .hidden-xs {
+   display: none;
+ }
 }

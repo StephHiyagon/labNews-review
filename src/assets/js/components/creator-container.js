@@ -4,7 +4,7 @@ const newsContainer = (data) => {
     const container = $('<div class="container-news"></div>');
     const containerText = $('<div></div>');
     const title = $('<h5>' + data.title + '</h5>');
-    const img = $('<img class="responsive-img" src="assets/img/news/' + data.img + '" />');
+    const img = $('<img id="'+data.img+'" class="responsive-img" src="assets/img/news/' + data.img + '" />');
 
 
     containerText.append(title);
