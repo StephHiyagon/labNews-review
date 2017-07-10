@@ -12,8 +12,9 @@ $white: #fff;
 }
 
 %container {
- padding: 1% 6%;
- width: 100%;
+ width: 90%;
+ margin: 0 auto;
+ box-sizing: border-box;
 }
 
 @mixin width-container() {
@@ -72,11 +73,12 @@ $white: #fff;
 
 .container {
   &-main {
-    @include width-container;
-    margin-top:10rem;
+    // @include width-container;
+    @extend %container;
   }
   &-mundo {
-    @include width-container;
+    @extend %container;
+    // @include width-container;
   }
   &__video{
     position: absolute;
@@ -118,7 +120,6 @@ $white: #fff;
 
 .header {
  @extend %container;
- width: 100%;
  &__menuDesk {
    @extend %flex;
    justify-content: space-between;
@@ -145,7 +146,6 @@ $white: #fff;
      display:inline;
      img{
        width: 60%;
-
      }
    }
    .search {
@@ -154,7 +154,7 @@ $white: #fff;
    }
  }
 
- &__menu{
+ &__navigation{
    background-color: #F7B617 ;
    padding: 10px 0;
    ul {

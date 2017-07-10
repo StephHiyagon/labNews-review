@@ -205,18 +205,9 @@ const Footer = () => {
 }
 
 'use strict';
-
-// const Header = () => {
-//     const nav = $('<nav class="nav"></nav>');
-//     const iconMenu = $('<img class="icon-menu" src="assets/img/menu.png"/>');
-//
-//     nav.append(iconMenu);
-//     return nav;
-// };
-
 const Header = () => {
     const headerContainer = $(`<header class="header"></header>`);
-    const nav = $(`<div></div>`);
+    const nav = $(`<div class="row"></div>`);
     const divMenu = $(`<div class="header__menuDesk hide-on-small-only">
                             <ul class="col s10">
                                 <li><img src="assets/img/menu.png" alt="">SECTIONS</li>
@@ -231,7 +222,7 @@ const Header = () => {
 
     const logoHeader = $(`<div class="header__logo hide-on-small-only">
                             <img src="assets/img/logoicon.png" alt="">
-                            <span>hora | <img src="assets/img/cloud.png" alt=""> 20°</span>
+                            <span>${date()} | <img src="assets/img/cloud.png" alt=""> 20°</span>
                           </div>`);
 
     nav.append(divMenu);
@@ -260,6 +251,13 @@ const Header = () => {
    headerContainer.append(divNavigation);
 
     return headerContainer;
+}
+function date(){
+  const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  const week = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+  const date = new Date();
+  const today = week[date.getDay()] + ', ' + months[date.getMonth()] + ' ' + date.getDate() + ' de ' + date.getFullYear();
+  return today;
 }
 
 'use strict';
