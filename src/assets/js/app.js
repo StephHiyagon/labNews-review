@@ -13,8 +13,6 @@ const render = (root) => {
       wrapper.append(Carrousel());
     }
 
-    console.log(state.noti);
-
     if(state.noti=="nota1"){
       wrapper.append(TecnologyNews());
     }

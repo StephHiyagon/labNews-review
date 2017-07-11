@@ -129,7 +129,7 @@ const switcher = (data) => {
 const EducationNews = () => {
         const container = $('<div class="container-tecnology"></div>');
         const row = $('<div class="row"></div>');
-        const h4 = $(`<div class="categoria"><h4>${state.categories[3].title}</h4><hr/></div>`);
+        const h4 = $(`<div class="categoria col s12"><h4>${state.categories[3].title}</h4><hr/></div>`);
         row.append(h4);
 
             let counter = 0;
@@ -305,7 +305,7 @@ const MundoNews = (update) => {
     const container = $('<div class="container__mundo"></div>');
     const row = $('<div class="row"></div>');
     const col6 = $('<div class="col m6"></div>');
-    const h4 = $(`<div class="categoria"><h4>${state.categories[1].title}</h4><hr/></div>`);
+    const h4 = $(`<div class="categoria col s12"><h4>${state.categories[1].title}</h4><hr/></div>`);
     row.append(h4);
 
     state.news.forEach((elem) => {
@@ -323,7 +323,7 @@ const MundoNews = (update) => {
 const OpinionNews = () => {
     const container = $('<div class="container__opinion"></div>');
     const row = $('<div class="row"></div>');
-    const h4 = $(`<div class="categoria"><h4>${state.categories[4].title}</h4><hr/></div>`);
+    const h4 = $(`<div class="categoria col s12"><h4>${state.categories[4].title}</h4><hr/></div>`);
     row.append(h4);
 
     let counter = 0;
@@ -346,7 +346,7 @@ const OpinionNews = () => {
 const TecnologyNews = () => {
     const container = $('<div class="container__technology"></div>');
     const row = $('<div class="row"></div>');
-    const h4 = $(`<div class="categoria"><h4>${state.categories[2].title}</h4><hr/></div>`);
+    const h4 = $(`<div class="categoria col s12"><h4>${state.categories[2].title}</h4><hr/></div>`);
     row.append(h4);
 
     let counter = 0;
@@ -378,8 +378,6 @@ const render = (root) => {
       wrapper.append(OpinionNews());
       wrapper.append(Carrousel());
     }
-
-    console.log(state.noti);
 
     if(state.noti=="nota1"){
       wrapper.append(TecnologyNews());
