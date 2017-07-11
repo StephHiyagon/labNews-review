@@ -71,6 +71,10 @@ $white: #fff;
   }
 }
 
+img.responsive-img{
+  width:100%;
+}
+
 .container {
   &-main {
     // @include width-container;
