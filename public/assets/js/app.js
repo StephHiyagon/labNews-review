@@ -1,6 +1,52 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+const Article = () => {
+	const container = $('<div class="container"></div>');
+	const row = $('<div class="row"></div>');
+	const articleContainer = $('<div class="col s8"></div>');
+	const title = $('<h4 class="uppercase">Mit busca estudiantes de todo el mundo que quieran estudiar gratis</h4>');
+	const subtitle = $('<p>Ya no será necesario ir hasta el campus de MIT para estudiar allá, por medio de su curso gratuito en línea cualquier podrá hacerlo.</p>');
+	const imageContainer = $('<div class="col s12"></div>')
+	const image = $('<img src="assets/img/foto-n1.png" class="article-img">');
+	const authorContainer = $('<div class="col s12 author-info"></div>');
+	const authorImage = $('<img src="assets/img/authors/dianaluque.png" class="author">');
+	const authorName = $('<p class="uppercase col s12">Diana Luque Lavado <br> 22.06.17 12:26 pm <br> @photosynthetica</p>');
+	const article = $(`<p>Nuestro ingeniero había expresado su <b>deseo de estudiar en Stanford</b> y encontró la manera de hacerlo gratis 
+						gracias a los cursos virtuales de tecnología y emprendimiento. Ahora <b>el Massachusetts Institute of Technology 
+						(MIT) anunció su primer curso totalmente en línea a partir de marzo</b>, según lo reporta BBC News.</p>
+						<p>Este primer proyecto en línea, el cual es un curso de circuitos y electrónica, fue bautizado como MITx 
+						diseñado como un prototipo que busca romper las barreras de la educación, por medio de un sistema automatizado 
+						que al final del curso hará que los estudiantes más exitosos reciban un certificado.</p>
+						<p>MIT ofrece desde hace un tiempo varios cursos en línea. La diferencia, además de ser gratuito, es abierto 
+						para cualquier estudiante del mundo sin requisitos de ingreso. Todo será por medio de su plataforma, los 
+						materiales de estudio, junto con un laboratorio virtual y libros digitales o e-books para consulta.</p>
+						<p>El curso de circuitos y electrónica comenzará el próximo lunes, y está basado en el que el campus ofrece 
+						presencial con el mismo nombre. MIT asegura que no es una versión ligera del mismo sino que tendrá todos los 
+						componentes e incluye ejercicios interactivos para comprobar los conocimientos de los estudiantes.</p>
+						<p>El profesor Anant Agarwal, director del laboratorio de computación e inteligencia artificial de MIT, aclara
+						 que no existirán requisitos como titulaciones para tomar el curso, pero <b>aconseja tener conocimientos en 
+						 matemáticas, ciencias e inglés para quienes este no es su idioma nativo, y asumir un código de honor en el 
+						 que los estudiantes se comprometan a un comportamiento honesto</b>.</p><p>Este primer curso es la prueba para los 
+						 siguientes que MIT desea abrir en áreas como biología, física y matemáticas, como una forma de formar y 
+						 acreditar personas para generar empleo. La universidad busca también llamar la atención de los empleadores y 
+						 posibles interesados en financiación a futuro.</p><p>Existirá diferenciación entre un titulo obtenido de 
+						 manera presencial y uno virtual, así como el material de estudio pero la idea con MITx es llegar a un grupo 
+						 de estudiantes internacional y también entrar en la competición de ofertas educativas, no solo la de Stanford, 
+						 sino también con lo que iTunes U ofrece en cuanto a lecturas.</p><p>Se pueden inscribir en el sitio web de MITx, 
+						 en el que encontrarán un enlace que ‘enlistar’ o ‘enroll’ para este curso. De seguro se volverán a encontrar 
+						 con nuestro ingeniero en la sala de estudio virtual.</p>`);
+
+	authorContainer.append(authorImage, authorName);
+	imageContainer.append(image);
+	articleContainer.append(authorContainer, article);
+	row.append(title, subtitle, imageContainer, articleContainer);
+	container.append(row);
+
+	return container;
+}
+'use strict';
+
 const Carrousel = (update) => {
 
     const workspace = $('<div class="carrousel-workspace"></div>');
@@ -73,7 +119,7 @@ const newsContainer = (data) => {
 
     if (data.type == 1) {
         title.addClass('main-title');
-        const text = $('<p class="text">' + data.brief + '</p>');
+        const text = $('<p class="text hide-on-small-only">' + data.brief + '</p>');
         containerText.append(text);
     }
     if (data.isVideo == true) {
@@ -89,37 +135,32 @@ const newsContainer = (data) => {
 const switcher = (data) => {
     switch (data.type) {
         case '1':
-            const boxOne = $('<div class="col l12 s12 news-type-1"></div>');
+            const boxOne = $('<div class="col l12 s12 news-type-'+data.type+'"></div>');
             const link = $('<a class="info-new" href="#"></a>');
             boxOne.append(newsContainer(data));
             link.append(boxOne);
-            InformationNews(link);
+            link.on('click',() =>{state.informacion = data});
             return link;
             break;
         case '2':
-            const boxTwo = $('<div class="col l6 s12 news-type-2"></div>');
+            const boxTwo = $('<div class="col l3 s12 news-type-'+data.type+'"></div>');
             boxTwo.append(newsContainer(data));
             return boxTwo;
             break;
         case '3':
-            const boxThree = $('<div class="col l3 s12 news-type-3"></div>');
+            const boxThree = $('<div class="col l3 s12 news-type-'+data.type+'"></div>');
             boxThree.append(newsContainer(data));
             return boxThree;
             break;
         case '4':
-            const boxFour = $('<div class="col l3 s12 news-type-4"></div>');
+            const boxFour = $('<div class="col l3 s12 news-type-'+data.type+'"></div>');
             boxFour.append(newsContainer(data));
             return boxFour;
             break;
         case '5':
-            const boxFive = $('<div class="col l6 s12 news-type-5"></div>');
+            const boxFive = $('<div class="col l6 s12 news-type-'+data.type+'"></div>');
             boxFive.append(newsContainer(data));
             return boxFive;
-            break;
-        case '6':
-            const boxSix = $('<div class="col l3 s6 news-type-6"></div>');
-            boxSix.append(newsContainer(data));
-            return boxSix;
             break;
     }
 };
@@ -262,14 +303,29 @@ function date(){
 
 'use strict';
 
-const InformationNews = () =>{
-  const container = $('<div></div>');
-  const row = $('<div class="row"></div>');
+const InformationNews = (data) => {
+    const container = $('<div></div>');
+    const row = $('<div class="row"></div>');
+
+    const articleContainer = $('<div class="col s8"></div>');
+    const title = $('<h4 class="uppercase">'+data.title+'</h4>');
+    const subtitle = $('<p>'+data.brief+'</p>');
+    const imageContainer = $('<div class="col s12"></div>')
+    const image = $('<img src="assets/img/foto-n1.png" class="article-img">');
+    const authorContainer = $('<div class="col s12 author-info"></div>');
+    const authorImage = $('<img src="assets/img/authors/'+data.author.picture +'" class="author">');
+    const authorName = $('<p class="uppercase col s12">' + data.author.name + '<br/>' +
+        data['published-date'] + '<br>' + data.author.user + '</p>');
+    const article = $(data.body);
+
+    authorContainer.append(authorImage, authorName);
+    imageContainer.append(image);
+    articleContainer.append(authorContainer, article);
+    row.append(title, subtitle, imageContainer, articleContainer);
 
 
-
-  container.append(row);
-  return container;
+    container.append(row);
+    return container;
 };
 
 'use strict';
@@ -278,6 +334,8 @@ const InformationNews = () =>{
 const MainNews = (update) => {
     const container = $('<div class="container-main"></div>');
     const row = $('<div class="row"></div>');
+    const h4 = $(`<div class="categoria col s12 hide-on-med-and-up"><h4>LO ÚLTIMO</h4><hr/></div>`);
+    row.append(h4);
 
     state.news.forEach((i) => {
         if (state.categories[0].id == i.categories[0]) {
@@ -287,11 +345,9 @@ const MainNews = (update) => {
 
     row.first().on('click',(e) => {
       if(e.target.id == "news-0.png"){
-        alert('entraste!');
         state.noti="nota1";
         update();
       }
-      console.log(e.target.className);
     });
 
     container.append(row);
@@ -302,22 +358,26 @@ const MainNews = (update) => {
 'use strict';
 
 const MundoNews = (update) => {
-    const container = $('<div class="container__mundo"></div>');
+    const container = $('<div class="container-mundo"></div>');
     const row = $('<div class="row"></div>');
-    const col6 = $('<div class="col m6"></div>');
-    const h4 = $(`<div class="categoria col s12"><h4>${state.categories[1].title}</h4><hr/></div>`);
-    row.append(h4);
+    const group = $('<div class="col l6 s12"></div>');
 
-    state.news.forEach((elem) => {
-        if (state.categories[1].id == elem.categories[0]) {
-          row.append(switcher(elem));
+    state.news.forEach((i, index) => {
+        if (state.categories[1].id == i.categories[0]) {
+            if (index == 5 || index == 6 || index == 8 || index == 9) {
+                group.append(switcher(i));
+            } else if (index == 4) {
+                row.prepend(switcher(i));
+            }else {
+                row.append(switcher(i));
+            }
         }
     });
-    container.append(row);
 
+    row.prepend(group);
+    container.append(row);
     return container;
 };
-
 'use strict';
 
 const OpinionNews = () => {
@@ -365,22 +425,20 @@ const TecnologyNews = () => {
 };
 
 'use strict';
-
 const render = (root) => {
     root.empty();
     const wrapper = $('<div class="container"></div>');
-      wrapper.append(Header());
+    wrapper.append(Header());
     if(!state.noti){
-      wrapper.append(MainNews(_ =>{render(root)}));
-      wrapper.append(MundoNews(_ =>{render(root)}));
-      wrapper.append(TecnologyNews());
-      wrapper.append(EducationNews());
-      wrapper.append(OpinionNews());
-      wrapper.append(Carrousel());
+        wrapper.append(MainNews(_ =>{render(root)}));
+        wrapper.append(MundoNews(_ =>{render(root)}));
+        wrapper.append(TecnologyNews());
+        wrapper.append(EducationNews());
+        wrapper.append(OpinionNews());
+        wrapper.append(Carrousel());
     }
-
     if(state.noti=="nota1"){
-      wrapper.append(TecnologyNews());
+        wrapper.append(InformationNews(state.informacion));
     }
     wrapper.append(Footer());
     root.append(wrapper);
@@ -389,7 +447,8 @@ const render = (root) => {
 const state = {
     news: null,
     categories: null,
-    noti:null
+    noti:null,
+    informacion: null
 };
 
 $(_ => {
@@ -408,5 +467,4 @@ $(_ => {
     });
 
 });
-
 },{}]},{},[1])

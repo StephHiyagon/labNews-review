@@ -4,6 +4,8 @@
 const MainNews = (update) => {
     const container = $('<div class="container-main"></div>');
     const row = $('<div class="row"></div>');
+    const h4 = $(`<div class="categoria col s12 hide-on-med-and-up"><h4>LO ÚLTIMO</h4><hr/></div>`);
+    row.append(h4);
 
     state.news.forEach((i) => {
         if (state.categories[0].id == i.categories[0]) {
@@ -13,11 +15,9 @@ const MainNews = (update) => {
 
     row.first().on('click',(e) => {
       if(e.target.id == "news-0.png"){
-        alert('entraste!');
         state.noti="nota1";
         update();
       }
-      console.log(e.target.className);
     });
 
     container.append(row);

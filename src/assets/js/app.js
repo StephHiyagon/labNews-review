@@ -1,20 +1,18 @@
 'use strict';
-
 const render = (root) => {
     root.empty();
     const wrapper = $('<div class="container"></div>');
-      wrapper.append(Header());
+    wrapper.append(Header());
     if(!state.noti){
-      wrapper.append(MainNews(_ =>{render(root)}));
-      wrapper.append(MundoNews(_ =>{render(root)}));
-      wrapper.append(TecnologyNews());
-      wrapper.append(EducationNews());
-      wrapper.append(OpinionNews());
-      wrapper.append(Carrousel());
+        wrapper.append(MainNews(_ =>{render(root)}));
+        wrapper.append(MundoNews(_ =>{render(root)}));
+        wrapper.append(TecnologyNews());
+        wrapper.append(EducationNews());
+        wrapper.append(OpinionNews());
+        wrapper.append(Carrousel());
     }
-
     if(state.noti=="nota1"){
-      wrapper.append(TecnologyNews());
+        wrapper.append(InformationNews(state.informacion));
     }
     wrapper.append(Footer());
     root.append(wrapper);
@@ -23,7 +21,8 @@ const render = (root) => {
 const state = {
     news: null,
     categories: null,
-    noti:null
+    noti:null,
+    informacion: null
 };
 
 $(_ => {

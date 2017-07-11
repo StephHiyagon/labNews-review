@@ -6869,6 +6869,21 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .nav__icon-menu {
     width: 70px; }
 
+.uppercase {
+  text-transform: uppercase; }
+
+.article-img {
+  width: 100%; }
+
+.author {
+  border-radius: 50%;
+  border: 1px solid #F7B617;
+  padding: 5px; }
+
+.author-info {
+  display: inline-flex;
+  font-weight: bolder; }
+
 .news-type-2 {
   position: relative;
   color: #fff; }
@@ -6938,6 +6953,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       padding: 3% 5%; }
       .news-type-6 .container-news div h5 {
         font-size: 1.2rem; }
+
+img.responsive-img {
+  width: 100%; }
 
 .container__video {
   position: absolute;

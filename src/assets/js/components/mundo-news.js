@@ -1,18 +1,23 @@
 'use strict';
 
 const MundoNews = (update) => {
-    const container = $('<div class="container__mundo"></div>');
+    const container = $('<div class="container-mundo"></div>');
     const row = $('<div class="row"></div>');
-    const col6 = $('<div class="col m6"></div>');
-    const h4 = $(`<div class="categoria col s12"><h4>${state.categories[1].title}</h4><hr/></div>`);
-    row.append(h4);
+    const group = $('<div class="col l6 s12"></div>');
 
-    state.news.forEach((elem) => {
-        if (state.categories[1].id == elem.categories[0]) {
-          row.append(switcher(elem));
+    state.news.forEach((i, index) => {
+        if (state.categories[1].id == i.categories[0]) {
+            if (index == 5 || index == 6 || index == 8 || index == 9) {
+                group.append(switcher(i));
+            } else if (index == 4) {
+                row.prepend(switcher(i));
+            }else {
+                row.append(switcher(i));
+            }
         }
     });
-    container.append(row);
 
+    row.prepend(group);
+    container.append(row);
     return container;
 };
