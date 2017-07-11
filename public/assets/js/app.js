@@ -1,23 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-// const CarruselNews = () => {
-//     const container = $('<div class="container-tecnology"></div>');
-//     const row = $('<div class="row"></div>');
-//
-//     state.news.forEach((i) => {
-//         if (state.categories[5].id == i.categories[1]) {
-//             row.append(switcher(i));
-//         }
-//     });
-//
-//     container.append(row);
-//
-//     return container;
-// };
-
-'use strict';
-
 const Carrousel = (update) => {
 
     const workspace = $('<div class="carrousel-workspace"></div>');
@@ -33,25 +16,25 @@ const Carrousel = (update) => {
     }
 
     const btn = $('<div class="buttons"></div>');
-    const btnLeft = $('<div href="" class="btn-left"><img src="../assets/img/flecha1.png" alt="search"></div>');
-    const btnRight = $('<div href="" class="btn-right"><img src="../assets/img/flecha2.png" alt="search"></div>');
+    const btnLeft = $('<div class="btn-left"><img src="../assets/img/flecha1.png" alt="search"></div>');
+    const btnRight = $('<div class="btn-right"><img src="../assets/img/flecha2.png" alt="search"></div>');
 
     $(document).ready(function(){
 
         $('.carrousel div:last').insertBefore('.carrousel div:first');
-        carrousel.css('margin-left', '-'+100+'%');
+        carrousel.css('margin-left', '-'+150+'%');
 
         function next(){
-            carrousel.animate({marginLeft:'-'+200+'%'},700,function(){
+            carrousel.animate({marginLeft:'-'+250+'%'},700,function(){
                 $('.carrousel div:first').insertAfter('.carrousel div:last');
-                carrousel.css('margin-left', '-'+100+'%');
+                carrousel.css('margin-left', '-'+150+'%');
             });
         }
 
         function previous(){
             carrousel.animate({marginLeft:0},700,function(){
                 $('.carrousel div:last').insertBefore('.carrousel div:first');
-                carrousel.css('margin-left', '-'+100+'%');
+                carrousel.css('margin-left', '-'+150+'%');
             });
         }
 
@@ -146,7 +129,7 @@ const switcher = (data) => {
 const EducationNews = () => {
         const container = $('<div class="container-tecnology"></div>');
         const row = $('<div class="row"></div>');
-        const h4 = $(`<h4 class="">${state.categories[3].title}</h4>`);
+        const h4 = $(`<div class="categoria"><h4>${state.categories[3].title}</h4><hr/></div>`);
         row.append(h4);
 
             let counter = 0;
@@ -322,7 +305,7 @@ const MundoNews = (update) => {
     const container = $('<div class="container__mundo"></div>');
     const row = $('<div class="row"></div>');
     const col6 = $('<div class="col m6"></div>');
-    const h4 = $(`<h4 class="">${state.categories[1].title}</h4>`);
+    const h4 = $(`<div class="categoria"><h4>${state.categories[1].title}</h4><hr/></div>`);
     row.append(h4);
 
     state.news.forEach((elem) => {
@@ -340,7 +323,7 @@ const MundoNews = (update) => {
 const OpinionNews = () => {
     const container = $('<div class="container__opinion"></div>');
     const row = $('<div class="row"></div>');
-    const h4 = $(`<h4 class="">${state.categories[4].title}</h4>`);
+    const h4 = $(`<div class="categoria"><h4>${state.categories[4].title}</h4><hr/></div>`);
     row.append(h4);
 
     let counter = 0;
@@ -363,7 +346,7 @@ const OpinionNews = () => {
 const TecnologyNews = () => {
     const container = $('<div class="container__technology"></div>');
     const row = $('<div class="row"></div>');
-    const h4 = $(`<h4 class="">${state.categories[2].title}</h4>`);
+    const h4 = $(`<div class="categoria"><h4>${state.categories[2].title}</h4><hr/></div>`);
     row.append(h4);
 
     let counter = 0;

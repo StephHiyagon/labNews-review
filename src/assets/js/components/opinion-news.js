@@ -3,7 +3,7 @@
 const OpinionNews = () => {
     const container = $('<div class="container__opinion"></div>');
     const row = $('<div class="row"></div>');
-    const h4 = $(`<h4 class="">${state.categories[4].title}</h4>`);
+    const h4 = $(`<div class="categoria"><h4>${state.categories[4].title}</h4><hr/></div>`);
     row.append(h4);
 
     let counter = 0;

@@ -7019,6 +7019,18 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       line-height: 14px;
       margin-bottom: 20px; }
 
+.categoria {
+  margin-bottom: 30px;
+  position: relative; }
+  .categoria hr {
+    position: absolute;
+    bottom: -14px;
+    width: 60px;
+    height: 7px;
+    background-color: #F7B617;
+    border: none;
+    text-align: left; }
+
 @media (max-width: 767px) {
   .show-xs {
     display: block; }
@@ -7027,12 +7039,15 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 .carrousel-workspace {
   min-height: 20vh;
-  display: flex; }
+  display: flex;
+  overflow: hidden;
+  border: 2px solid #F7B617;
+  margin-bottom: 15px;
+  position: relative; }
 
 .carrousel-container {
   margin: auto;
-  max-width: 200px;
-  position: relative; }
+  max-width: 250px; }
 
 .carrousel {
   display: flex;
@@ -7048,18 +7063,11 @@ img.content {
 
 .btn-left,
 .btn-right {
-  background: rgba(255, 255, 255, 0.5);
-  height: 40px;
-  width: 40px;
+  background: #F7B617;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  line-height: 40px;
-  font-size: 25px;
-  text-align: center;
-  border-radius: 50%;
+  top: 30%;
   cursor: pointer;
-  font-family: 'Arial', sans-serif; }
+  padding: 7px 5px 1px 5px; }
 
 .btn-left:hover,
 .btn-right:hover {
@@ -7067,7 +7075,7 @@ img.content {
   color: #fff; }
 
 .btn-left {
-  left: 10px; }
+  left: 0; }
 
 .btn-right {
-  right: 10px; }
+  right: 0; }

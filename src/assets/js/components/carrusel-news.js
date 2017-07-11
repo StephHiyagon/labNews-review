@@ -1,22 +1,5 @@
 'use strict';
 
-// const CarruselNews = () => {
-//     const container = $('<div class="container-tecnology"></div>');
-//     const row = $('<div class="row"></div>');
-//
-//     state.news.forEach((i) => {
-//         if (state.categories[5].id == i.categories[1]) {
-//             row.append(switcher(i));
-//         }
-//     });
-//
-//     container.append(row);
-//
-//     return container;
-// };
-
-'use strict';
-
 const Carrousel = (update) => {
 
     const workspace = $('<div class="carrousel-workspace"></div>');
@@ -32,25 +15,25 @@ const Carrousel = (update) => {
     }
 
     const btn = $('<div class="buttons"></div>');
-    const btnLeft = $('<div href="" class="btn-left"><img src="../assets/img/flecha1.png" alt="search"></div>');
-    const btnRight = $('<div href="" class="btn-right"><img src="../assets/img/flecha2.png" alt="search"></div>');
+    const btnLeft = $('<div class="btn-left"><img src="../assets/img/flecha1.png" alt="search"></div>');
+    const btnRight = $('<div class="btn-right"><img src="../assets/img/flecha2.png" alt="search"></div>');
 
     $(document).ready(function(){
 
         $('.carrousel div:last').insertBefore('.carrousel div:first');
-        carrousel.css('margin-left', '-'+100+'%');
+        carrousel.css('margin-left', '-'+150+'%');
 
         function next(){
-            carrousel.animate({marginLeft:'-'+200+'%'},700,function(){
+            carrousel.animate({marginLeft:'-'+250+'%'},700,function(){
                 $('.carrousel div:first').insertAfter('.carrousel div:last');
-                carrousel.css('margin-left', '-'+100+'%');
+                carrousel.css('margin-left', '-'+150+'%');
             });
         }
 
         function previous(){
             carrousel.animate({marginLeft:0},700,function(){
                 $('.carrousel div:last').insertBefore('.carrousel div:first');
-                carrousel.css('margin-left', '-'+100+'%');
+                carrousel.css('margin-left', '-'+150+'%');
             });
         }
 
