@@ -91,7 +91,7 @@ const newsContainer = (data) => {
 const switcher = (data) => {
     switch (data.type) {
         case '1':
-            const boxOne = $('<div class="col l12 s12 news-type-1"></div>');
+            const boxOne = $('<div class="col l12 s12 news-type-'+data.type+'"></div>');
             const link = $('<a class="info-new" href="#"></a>');
             boxOne.append(newsContainer(data));
             link.append(boxOne);
@@ -99,22 +99,22 @@ const switcher = (data) => {
             return link;
             break;
         case '2':
-            const boxTwo = $('<div class="col l6 s12 news-type-2"></div>');
+            const boxTwo = $('<div class="col l3 s12 news-type-'+data.type+'"></div>');
             boxTwo.append(newsContainer(data));
             return boxTwo;
             break;
         case '3':
-            const boxThree = $('<div class="col l3 s12 news-type-3"></div>');
+            const boxThree = $('<div class="col l3 s12 news-type-'+data.type+'"></div>');
             boxThree.append(newsContainer(data));
             return boxThree;
             break;
         case '4':
-            const boxFour = $('<div class="col l3 s12 news-type-4"></div>');
+            const boxFour = $('<div class="col l3 s12 news-type-'+data.type+'"></div>');
             boxFour.append(newsContainer(data));
             return boxFour;
             break;
         case '5':
-            const boxFive = $('<div class="col l3 s12 news-type-5"></div>');
+            const boxFive = $('<div class="col l6 s12 news-type-'+data.type+'"></div>');
             boxFive.append(newsContainer(data));
             return boxFive;
             break;

@@ -6959,6 +6959,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
       .news-type-6 .container-news div h5 {
         font-size: 1.2rem; }
 
+img.responsive-img {
+  width: 100%; }
+
 .container__video {
   position: absolute;
   top: 20px;
